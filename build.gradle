@@ -1,3 +1,7 @@
+plugins {
+  id "com.github.hierynomus.license" version "0.11.0"
+}
+
 apply plugin: 'java'
 
 task wrapper(type: Wrapper) {
@@ -37,4 +41,11 @@ javadoc {
 
 dependencies {
   compile fileTree('libs') // contains jars provided with the Mines JTK
+}
+
+license {
+  ext.year = Calendar.getInstance().get(Calendar.YEAR)
+  ext.name = "Colorado School of Mines and others"
+  header = file('APLv2-HEADER.txt')
+  strictCheck = true
 }
